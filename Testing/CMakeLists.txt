@@ -46,9 +46,10 @@ include_directories(src)
 
 set(SOURCE_FILES
         main.cpp
+        src/TestClass.cpp
         DependencyBreaking/TestHippomock.cpp
         DependencyBreaking/TestGMock.cpp
-        src/TestClass.cpp)
+        Cpp14/TestSmartPointer.cpp)
 
 add_executable(testing ${SOURCE_FILES})
 
