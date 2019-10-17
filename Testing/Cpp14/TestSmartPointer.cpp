@@ -1,4 +1,5 @@
 #include "gtest/gtest.h"
+#include "MyStruct.h"
 #include <memory>
 
 namespace test
@@ -32,8 +33,20 @@ void foo1(const std::shared_ptr<Foo> _foo)
 
 using test::SmartPointer::Foo;
 
+TEST(TestUnique, test)
+{
+    {
+        std::unique_ptr<test::MyStruct> uPtr{new test::MyStruct};
+    }
+    std::cout << "----- scope end";
+
+    ASSERT_EQ(1, 1);
+}
+
 TEST(TestSharedPtr, test)
 {
- ASSERT_EQ(16, sizeof(Foo));
+    test::MyStruct inst1;
+    ASSERT_EQ(1, 1);
+
 }
 
