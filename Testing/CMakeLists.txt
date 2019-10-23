@@ -49,7 +49,10 @@ set(SOURCE_FILES
         src/TestClass.cpp
         DependencyBreaking/TestHippomock.cpp
         DependencyBreaking/TestGMock.cpp
-        Cpp14/TestSmartPointer.cpp)
+        Cpp14/TestSmartPointer.cpp
+        Language/TestMath.cpp
+        TestStl/TestIo.cpp
+        DependencyBreaking/TestFactory.cpp)
 
 add_executable(testing ${SOURCE_FILES})
 

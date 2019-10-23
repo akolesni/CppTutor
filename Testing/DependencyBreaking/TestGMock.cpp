@@ -1,15 +1,6 @@
 #include "gmock/gmock.h"
 #include "TestClass.h"
-
-using namespace testing;
-
-class MockTestClass : public ITestClass
-{
-public:
-    MOCK_METHOD2(getMax, int(int, int));
-    MOCK_METHOD2(getMin, int(int, int));
-};
-
+#include "TestMocks.h"
 
 TEST(Test1, case01)
 {
