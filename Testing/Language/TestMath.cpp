@@ -6,8 +6,39 @@
 #include <iomanip>
 using namespace std;
 
+using frexpValues = std::tuple<double, double, int>;
+constexpr size_t inputVlue = 0U;
+constexpr size_t expectedSignificand = 1U;
+constexpr size_t expectedExponent = 2U;
+class TestFrexp :public ::testing::TestWithParam<frexpValues>{};
+INSTANTIATE_TEST_CASE_P(
+        ParamsForTestFrexp,
+        TestFrexp,
+        ::testing::Values(
+                frexpValues{428362.33201, 0.81703633, 19},
+                frexpValues{42.0,         0.65625,    6},
+                frexpValues{10.0,         0.625,      4},
+                frexpValues{8.0,          0.5,        4}, // 8.0 = 0.5 * 2^4
+                frexpValues{0.51,         0.50999999, 0},
+                frexpValues{0.5,          0.5,        0},
+                frexpValues{0.499,        0.99800003, -1},
+                frexpValues{0.4,          0.80000001, -1},
+                frexpValues{0.0,          0.0,        0},
+                frexpValues{0.0001,       0.81919998, -13},
+                frexpValues{-8.0,         -0.5,       4}, // -8.0 = -0.5 * 2^4
+                frexpValues{-42.0,        -0.65625,   6}
+        ),);
 
-TEST(TestRounding,rounding)
+TEST_P(TestFrexp, testFrexp_paramValues_successful)
+{
+    frexpValues params = GetParam();
+
+    int exponent;
+    ASSERT_FLOAT_EQ(get<expectedSignificand>(params), ::frexp(get<inputVlue>(params), &exponent));
+    ASSERT_EQ(get<expectedExponent>(params), exponent);
+}
+
+TEST(TestRounding, rounding)
 {
     https://habr.com/ru/post/471506/
 
@@ -26,7 +57,7 @@ TEST(TestRounding,rounding)
     N = 15;
     x = 7.6;
 
-    q = frexp(x, &e);
+    q = ::frexp(x, &e);
     E = static_cast <int> (e*0.301);
     k = N - E;
     if(E < 0)       //for format xr=d0.d1...dN*10^E (d0≠0).
