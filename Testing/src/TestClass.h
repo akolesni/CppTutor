@@ -13,6 +13,7 @@ long getFileSize(const char* _fileName);
 class ITestClass
 {
 public:
+    virtual ~ITestClass() = default;
     virtual int getMax(int a1, int a2) = 0;
 
     virtual int getMin(int a1, int a2) = 0;

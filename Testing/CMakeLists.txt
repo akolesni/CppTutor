@@ -1,8 +1,9 @@
 cmake_minimum_required(VERSION 3.12)
 project(testing)
 
-set(CMAKE_CXX_STANDARD 14)
-
+set(CMAKE_CXX_STANDARD 17)
+#set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(DEPRECATION_FLAG "-Wno-deprecated-declarations")
 # Download and unpack googletest at configure time
 configure_file(CMakeLists.txt.in googletest-download/CMakeLists.txt)
 execute_process(COMMAND ${CMAKE_COMMAND} -G "${CMAKE_GENERATOR}" .
@@ -51,6 +52,7 @@ set(SOURCE_FILES
         DependencyBreaking/TestGMock.cpp
         Cpp14/TestSmartPointer.cpp
         Language/TestMath.cpp
+        Language/TestStruct.cpp
         TestStl/TestIo.cpp
         DependencyBreaking/TestFactory.cpp)
 
