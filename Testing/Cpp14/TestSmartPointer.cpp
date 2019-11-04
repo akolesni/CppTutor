@@ -2,9 +2,7 @@
 #include "MyStruct.h"
 #include <memory>
 
-namespace test
-{
-namespace SmartPointer
+namespace test::SmartPointer
 {
 class Foo
 {
@@ -28,7 +26,6 @@ void foo1(const std::shared_ptr<Foo> _foo)
 
 }
 
-}
 }
 
 using test::SmartPointer::Foo;

@@ -54,7 +54,9 @@ set(SOURCE_FILES
         Language/TestMath.cpp
         Language/TestStruct.cpp
         TestStl/TestIo.cpp
-        DependencyBreaking/TestFactory.cpp)
+        DependencyBreaking/TestFactory.cpp
+        src/Common/Path.cpp
+        src/Common/FileSystemUtility.cpp src/PackageWriter.cpp src/PackageWriter.h)
 
 add_executable(testing ${SOURCE_FILES})
 
