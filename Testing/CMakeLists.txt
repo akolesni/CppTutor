@@ -50,13 +50,16 @@ set(SOURCE_FILES
         src/TestClass.cpp
         DependencyBreaking/TestHippomock.cpp
         DependencyBreaking/TestGMock.cpp
+        DependencyBreaking/TestPackageWriter.cpp
         Cpp14/TestSmartPointer.cpp
         Language/TestMath.cpp
         Language/TestStruct.cpp
         TestStl/TestIo.cpp
         DependencyBreaking/TestFactory.cpp
-        src/Common/Path.cpp
-        src/Common/FileSystemUtility.cpp src/PackageWriter.cpp src/PackageWriter.h)
+#        src/Common/Path.cpp
+        src/Common/FileSystemUtility.cpp
+        src/PackageWriter.cpp
+        )
 
 add_executable(testing ${SOURCE_FILES})
 

@@ -91,6 +91,7 @@ TEST(TestStruct, testStruct_namedMemberScopeInitializingNotOrdered_successful)
 }
 */
 
+
 TEST(TestStruct, testStruct_structuredBinding_successful)
 {
     const auto book = BookStats{

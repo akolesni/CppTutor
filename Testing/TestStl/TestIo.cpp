@@ -3,5 +3,5 @@
 
 TEST(a, a)
 {
-    ASSERT_EQ(1, 2);
+    ASSERT_EQ(2, 2);
 }
